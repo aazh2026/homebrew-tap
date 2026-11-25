@@ -12,7 +12,12 @@ class Specgate < Formula
     # Preserve the repository layout so the CLI can resolve package.json
     # relative to both bin/ and src/.
     prefix.install Dir["bin", "src", "assets", "package.json"]
-    bin.install_symlink libexec/"bin/specgate"
+
+    # The upstream entry point is bin/specgate.js; expose it as `specgate`.
+    (bin/"specgate").write <<~SH
+      #!/bin/sh
+      exec "#{libexec}/bin/specgate.js" "$@"
+    SH
   end
 
   test do
