@@ -9,9 +9,9 @@ class Specgate < Formula
   depends_on "node"
 
   def install
-    # Preserve the repository layout so the CLI can resolve package.json
-    # relative to both bin/ and src/.
-    prefix.install Dir["bin", "src", "assets", "package.json"]
+    # Keep the repository layout intact under libexec so the CLI can resolve
+    # package.json relative to both bin/ and src/.
+    libexec.install Dir["bin", "src", "assets", "package.json"]
 
     # The upstream entry point is bin/specgate.js; expose it as `specgate`.
     (bin/"specgate").write <<~SH
