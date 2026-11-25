@@ -9,14 +9,14 @@ class Specgate < Formula
   depends_on "node"
 
   def install
-    libexec.install Dir["bin/*"]
-    libexec.install Dir["src"]
-    libexec.install Dir["assets"]
-    libexec.install "package.json"
+    # Preserve the repository layout so the CLI can resolve package.json
+    # relative to both bin/ and src/.
+    prefix.install Dir["bin", "src", "assets", "package.json"]
     bin.install_symlink libexec/"bin/specgate"
   end
 
   test do
     assert_match "specgate", shell_output("#{bin}/specgate --help")
+    assert_match "0.1.1", shell_output("#{bin}/specgate --version")
   end
 end
