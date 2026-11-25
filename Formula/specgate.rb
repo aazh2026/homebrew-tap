@@ -13,7 +13,10 @@ class Specgate < Formula
     # package.json relative to both bin/ and src/.
     libexec.install Dir["bin", "src", "assets", "package.json"]
 
-    # The upstream entry point is bin/specgate.js; expose it as `specgate`.
+    # The upstream entry point is bin/specgate.js. The release tarball is not
+    # executable, so make it executable before wrapping it as `specgate`.
+    chmod 0755, libexec/"bin/specgate.js"
+
     (bin/"specgate").write <<~SH
       #!/bin/sh
       exec "#{libexec}/bin/specgate.js" "$@"
