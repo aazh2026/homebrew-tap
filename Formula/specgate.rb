@@ -1,10 +1,10 @@
 class Specgate < Formula
   desc "Requirement coverage for your codebase — like test coverage, but for acceptance criteria"
   homepage "https://github.com/aazh2026/specgate"
-  url "https://github.com/aazh2026/specgate/archive/refs/tags/v0.1.1.tar.gz"
-  sha256 "2af989a20a2325136a6cad29eb09c9acfaf03738f6e2d86179d9438b71397bac"
+  url "https://github.com/aazh2026/specgate/archive/refs/tags/v0.1.4.tar.gz"
+  sha256 "348d53b7fff6dc2bf8d13e37245f01f979966aa33ccda51f3554df805acc9800"
   license "MIT"
-  version "0.1.1"
+  version "0.1.4"
 
   depends_on "node"
 
@@ -25,6 +25,6 @@ class Specgate < Formula
 
   test do
     assert_match "specgate", shell_output("#{bin}/specgate --help")
-    assert_match "0.1.1", shell_output("#{bin}/specgate --version")
+    assert_match "0.1.4", shell_output("#{bin}/specgate --version")
   end
 end
