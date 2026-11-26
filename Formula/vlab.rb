@@ -13,6 +13,10 @@ class Vlab < Formula
     # the CLI wrapper can put libexec on PYTHONPATH. No build step, no deps.
     libexec.install Dir["src/vlab"]
 
+    # The `vlab test` subcommand discovers the regression suite relative to the
+    # package root, so the tests must ship alongside it.
+    libexec.install "tests" if (buildpath/"tests").exist?
+
     (bin/"vlab").write <<~SH
       #!/bin/sh
       PYTHONPATH="#{libexec}" exec "#{Formula["python@3.12"].opt_bin}/python3.12" -m vlab "$@"
