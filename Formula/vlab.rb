@@ -1,10 +1,10 @@
 class Vlab < Formula
   desc "Vlab — zero-dependency portfolio backtesting lab with a look-ahead guard and out-of-sample validity checks"
   homepage "https://github.com/aazh2026/vlab"
-  url "https://github.com/aazh2026/vlab/archive/refs/tags/v1.1.0.tar.gz"
-  sha256 "62ce32d6c3ee9357480f42ed531870213edb8a0eb16c1397842ce6535341a494"
+  url "https://github.com/aazh2026/vlab/archive/refs/tags/v1.1.1.tar.gz"
+  sha256 "f9aec05940ab5d394fd358c96d089402699671596c70bf32895428d9018ed3ca"
   license "MIT"
-  version "1.1.0"
+  version "1.1.1"
 
   depends_on "python@3.12"
 
