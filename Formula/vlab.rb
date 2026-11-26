@@ -15,7 +15,7 @@ class Vlab < Formula
 
     (bin/"vlab").write <<~SH
       #!/bin/sh
-      PYTHONPATH="#{libexec}" exec "#{Formula["python@3.12"].opt_bin}/python3" -m vlab "$@"
+      PYTHONPATH="#{libexec}" exec "#{Formula["python@3.12"].opt_bin}/python3.12" -m vlab "$@"
     SH
   end
 
